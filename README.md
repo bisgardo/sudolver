@@ -3,11 +3,12 @@ Sodolver
 
 Sudoku solver written in C that uses simple standard methods with optimistic
 brute-force fallback. It has currently been able to solve every single one of
-the approximately nine boards that has been thrown at it so far.
+the approximately nine boards that has been thrown at it so far (including what
+is allegedly the [hardest sudoku in the world](http://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html)).
 
 The command
 
-    ./sodolver [[from-recursion-depth:5] to-recursion-depth:9]
+    ./sudolver [[from-recursion-depth:5] to-recursion-depth:9]
 
 parses a board from standard input one cell value at a time in row-order.
 Numbers define the value of the corresponding cell while space characters
