@@ -48,3 +48,4 @@ bool parse(FILE *file, struct board *board) {
 	
 	return true;
 }
+

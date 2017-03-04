@@ -35,6 +35,7 @@ void print_binary(unsigned int value, unsigned int min_digit_count) {
 		min_digit_count--;
 	}
 	
-	fputs(min(pos + 1, str + 32 - min_digit_count), stdout);
+	fputs(MIN(pos + 1, str + 32 - min_digit_count), stdout);
 	/*printf("%s", min(pos + 1, str + 32 - min_digit_count));*/
 }
+

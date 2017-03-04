@@ -20,10 +20,11 @@ void print_board(struct board *board, char all_symbol);
 
 void print_board_debug(struct board *board);
 
-void values(struct board *board, int values[]);
+bool values(struct board *board, int values[]);
 
 struct cell *get_cell(struct board *board, int row, int col);
 
 bool is_singular(struct board *board);
 
 bool is_consistent(struct board *board);
+

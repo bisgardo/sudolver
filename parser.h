@@ -7,3 +7,4 @@
 #include "board.h"
 
 bool parse(FILE *file, struct board *board);
+

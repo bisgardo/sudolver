@@ -67,3 +67,23 @@ ipch/
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
+
+# Linux
+.*
+!.gitignore
+
+# QT Creator
+build*
+
+# Emacs
+#*
+*~
+
+# CMake
+CMake*
+!CMakeLists.txt
+*.cmake
+Makefile
+
+# Binary
+sudolver

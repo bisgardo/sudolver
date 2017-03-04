@@ -32,3 +32,4 @@ range of depths has been attempted.
 The project has currently only been built on Visual Studio 2015, but is planned
 to be made ANSI C compliant and compileable on both Windows and Linux as a
 CMake project.
+

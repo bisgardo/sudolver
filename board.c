@@ -172,3 +172,4 @@ bool is_consistent(struct board *board) {
 	
 	return true;
 }
+

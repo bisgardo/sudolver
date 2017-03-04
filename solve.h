@@ -20,3 +20,4 @@ bool solve(struct board *board);
 int min_candidate_count(struct board *b);
 
 struct board *recursive_solve(struct board *b, int level, int max_level);
+

@@ -99,3 +99,4 @@ void remove_from_col(struct board *board, struct cell *cell, int value) {
 	int col = cell->col;
 	remove_from_range(board, cell, value, 0, 9, col, col + 1);
 }
+

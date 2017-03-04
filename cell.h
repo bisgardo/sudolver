@@ -29,3 +29,4 @@ void remove_from_block(struct board *board, struct cell *cell, int value);
 void remove_from_row(struct board *board, struct cell *cell, int value);
 
 void remove_from_col(struct board *board, struct cell *cell, int value);
+

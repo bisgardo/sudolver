@@ -154,3 +154,4 @@ void setup_test_board_insane(struct board *board) {
 	
 	setup_board(board, values, sizeof(values) / (3 * sizeof(int)));
 }
+

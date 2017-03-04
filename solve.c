@@ -298,3 +298,4 @@ struct board *recursive_solve(struct board *board, int level, int max_level) {
 	/* There are no more guesses to be made. */
 	return NULL;
 }
+

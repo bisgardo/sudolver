@@ -10,3 +10,4 @@ void setup_test_board_medium(struct board *board);
 void setup_test_board_hard(struct board *board);
 
 void setup_test_board_insane(struct board *board);
+
