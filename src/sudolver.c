@@ -13,6 +13,7 @@ int default_from_recursion_depth = 5;
 int default_to_recursion_depth = 9;
 
 int main(int argc, char *argv[]) {
+	/* Allocate args struct and set default values. */
 	struct args args;
 	args.from_recursion_depth = default_from_recursion_depth;
 	args.to_recursion_depth = default_to_recursion_depth;
@@ -28,13 +29,13 @@ int main(int argc, char *argv[]) {
 	/*setup_test_board_easy(&board);*/
 	/*setup_test_board_medium(&board);*/
 	/*setup_test_board_hard(&board);*/
-	setup_test_board_insane(&board);
+	/*setup_test_board_insane(&board);*/
 	
 	/* Parse board from input. */
-	/*bool parse_board_success = parse(stdin, &board);
+	bool parse_board_success = parse(stdin, &board);
 	if (!parse_board_success) {
 		return EXIT_FAILURE;
-	}*/
+	}
 	
 	puts("Initial board:");
 	print_board(&board, '_');
@@ -72,7 +73,8 @@ int main(int argc, char *argv[]) {
 	printf("#attempts: %d.\n", solve_call_count());
 	
 	if (solved_board) {
-		printf("SOLVED in %.3f s! Result:\n", (float) (end_time - begin_time) / CLOCKS_PER_SEC);
+		float duration = end_time - begin_time;
+		printf("SOLVED in %.3f s! Result:\n", duration / CLOCKS_PER_SEC);
 		print_board(solved_board, 0);
 	} else {
 		/* TODO Make sure that we have enough information to determine if a solution may exist or

@@ -64,21 +64,34 @@ static bool do_parse(char *prog_name, void *argtable[], int argc, char *argv[]) 
 	return false;
 }
 
-static void fetch_args(struct args *args) {
+static bool fetch_args(char *prog_name, struct args *args) {
+	bool success = true;
 	if (from_recursion_depth->count > 0) {
 		int value = from_recursion_depth->ival[0];
-		args->from_recursion_depth = value;
-		
-		/* Ensure that "to" isn't smaller than "from". */
-		args->to_recursion_depth = MAX(args->to_recursion_depth, value);
+		if (value > 0) {
+			args->from_recursion_depth = value;
+			
+			/* Ensure that "to" isn't smaller than "from". */
+			args->to_recursion_depth = MAX(args->to_recursion_depth, value);
+		} else {
+			printf("%s: `from-recursion-depth` out of range.\n", prog_name);
+			success = false;
+		}
 	}
 	if (to_recursion_depth->count > 0) {
 		int value = to_recursion_depth->ival[0];
-		args->to_recursion_depth = value;
-		
-		/* Ensure that "from" isn't larger than "to". */
-		args->from_recursion_depth = MIN(args->from_recursion_depth, value);
+		if (value > 0) {
+			args->to_recursion_depth = value;
+			
+			/* Ensure that "from" isn't larger than "to". */
+			args->from_recursion_depth = MIN(args->from_recursion_depth, value);
+		} else {
+			printf("%s: `to-recursion-depth` out of range.\n", prog_name);
+			success = false;
+		}
 	}
+	
+	return success;
 }
 
 bool parse_args(struct args *args, int argc, char *argv[]) {
@@ -94,7 +107,7 @@ bool parse_args(struct args *args, int argc, char *argv[]) {
 	
 	bool success = do_parse(prog_name, argtable, argc, argv);
 	if (success) {
-		fetch_args(args);
+		success = fetch_args(prog_name, args);
 	}
 	
 	arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));

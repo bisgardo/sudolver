@@ -206,7 +206,7 @@ int min_candidate_count(struct board *board) {
         Proposal: "Unrecurse" function by letting the stack be a linked chain of objects that
                   contain the board (since we know the max recursion depth this could actually also
                   be an array) in a local variable. This allows us to inspect the entire stack at
-				  all times, as well as not destroy it when we return. */
+                  all times, as well as not destroy it when we return. */
 struct board *recursive_solve(struct board *board, int level, int max_level) {
 	if (is_info_enabled(solve$recursive_solve)) {
 		printf("INFO: Attempting to solve board at recursion level %d.\n", level);
