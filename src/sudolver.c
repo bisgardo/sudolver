@@ -18,9 +18,9 @@ int main(int argc, char *argv[]) {
 	args.from_recursion_depth = default_from_recursion_depth;
 	args.to_recursion_depth = default_to_recursion_depth;
 	
-	bool parse_args_success = parse_args(&args, argc, argv);
-	if (!parse_args_success) {
-		return EXIT_FAILURE;
+	bool run = parse_args(&args, argc, argv);
+	if (!run) {
+		return args.error_code;
 	}
 	
 	enable_all_info();

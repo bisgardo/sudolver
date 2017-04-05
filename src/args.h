@@ -8,6 +8,7 @@
 struct args {
 	int from_recursion_depth;
 	int to_recursion_depth;
+	int error_code;
 };
 
 bool parse_args(struct args *args, int argc, char *argv[]);
